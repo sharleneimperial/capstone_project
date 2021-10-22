@@ -1,0 +1,11 @@
+{% extends "customer/base.html" %}
+{% block content %}
+<form method="post" class="form-group">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+        {% comment %} <a href="{% url 'delete_order' %}"> {% endcomment %}
+        <button class='btn btn-red button-delete' type="submit">Delete</button>
+        </a>
+    </div>
+</form>
+{% endblock content %}
