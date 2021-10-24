@@ -126,76 +126,53 @@ class MenuSearch(View):
 
         return render(request, 'customer/menu.html', context)
 
-
 def access_order(request):
     if request.method == 'POST':
         name = request.POST['name']
         id = int(request.POST['order_id'])
-        print(name, id)
-        order = Order.objects.get(name=name);
+        order = Order.objects.get(id=id)
         is_match = (order.verify({'name': name, 'id': id}))
-        print(is_match)
         if (is_match):
-            return redirect('order_detail', order_id=request.POST['order_id'])
-        # print(order['name'])
-        # if order['name'] == request.POST['name']:
-            # If the name entered in the form matches the name on the order in the database, redirect to the order detail page
-            # return redirect("order_detail", order_id=order['id'])
-        # return render(request, 'login.html')
-        # form = AuthenticationForm(request, request.POST)
-        # if form.is_valid():
-        # user = form.get_user()
-        # login(request, user)
-        # if 'next' in request.POST:
-        # return
-    # Query the database for an order with that name and id
-        # Item.objects.create(id=34, my_order=1)
-        # Item.objects.create(id=12, my_order=2)
-        # Item.objects.create(id=4, my_order=3)
-    # If they match, go ahead and give them assess to their order (render the order_detail.html, from which they should be able to either edit or delete their order as desired)
-        # if order == 'Match':
-        #     order_detail.update
-    # If not, redirect back to home page (or however you want to handle that)
-    #  return redirect("customer/about")
-        # pass
-    else:
-        # return render('customer/about.html')
-        # If not post request, then get request - render the pseudo-login page
-         return render(request, "login.html")
-        # pass
-    # pass
+            return redirect('order-details', order_id=request.POST['order_id'])
+
+    return render(request, "login.html")
 
 
 def order_detail(request, order_id):
     # if it's a post request, go ahead and take the information from the request body and make the appropriate changes in the databasse
     if request.method == 'POST':
-        pass
         # Query database for order with id passed in the url
-        # orderId = request.POST.get('orderId', '')
-        # try:
-            # order = Order.objects.filter(pk=orderId)
-            # if len(order) > 0:
-                # update = Order.objects.filter(pk=orderId)
-        # Update the row in the database to match the information passed in the form
-        # updates = []
-        # for order in update:
-    else:
         order = Order.objects.get(id=order_id)
-        return render(request, 'customer/order_detail.html', {'order': order})
-        # If not a post requst, then it's a get request
-        # Query the database for the order information
-        # Render! That! Page!
-        # return redirect("order_")
+
+        # Update the order with the information from the form being posted
+
+        # Redirect to whatever page you want users to go to after updating their order
+
+        # Remove pass line after once you've added your return statement
+        pass
+    else:
+        # Right now this is set up to just present the items in the order to the user
+        # You may also want to send the order's address to the detail page, if you want to add the ability to change that address
+        order = Order.objects.get(id=order_id)
+        order_items = MenuItem.objects.filter(id__in=order.items.all())
+        print(order_items)
+        return render(request, 'customer/order_detail.html', {'items': order_items, 'order_id': order_id})
 
 
-# def delete_order(request):
-#     # Grab the order id (will probably be passed in the url, depending on how you set it up in urls.py and on your template)
-#     order = Order.objects.get(id)
-#     if request.method == "POST":
-#         # Delete it from the database
-#     order.delete()
-#     # Redirect user back to home(?) page - or wherever you want to send them
-#     return redirect('about')
+def delete_order(request, order_id):
+    # Grab the order id (will probably be passed in the url, depending on how you set it up in urls.py and on your template)
+    order = Order.objects.get(id=order_id)
+    # if request.method == "POST":
+        # Delete it from the database
+    order.delete()
+    # Redirect user back to home(?) page - or wherever you want to send them
+    return redirect('about')
+
+def update_order(request, order_id):
+
+    order = Order.objects.get(id=order_id)
+    order.update()
+    return redirect('order_detail')
 
 
 # Create any templates you may still need (pseudo-login form, order detail page, order edit page, delete confirmation, whichever of these you want to include and/or anything else that makes sense to you)

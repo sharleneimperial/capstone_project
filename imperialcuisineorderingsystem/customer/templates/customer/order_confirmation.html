@@ -1,23 +1,23 @@
 {% extends 'customer/base.html' %}
-
+<!-- {% load static %} -->
 {% block content %}
 <div class="container mb-5">
     <div class="row justify-content-center mt-1">
         <div class="col-md-5 col-sm-12 p-4 text-center">
-            <h1>Your Order Has Been Submitted! 😁</h1>
-            <p>You Will Be Receiving A Confirmation Email Soon. 📩</p>
-            <a href="{% url 'index' %}">Go To Our Homepage</a>
+            <font face="Papyrus"><h1>Your Order Has Been Submitted! 😁</h1></font>
+            <font face="Papyrus"><p>You Will Be Receiving A Confirmation Email Soon. 📩</p></font>
+            <font face="Papyrus"><a href="{% url 'index' %}">Go To Our Homepage</a></font>
         </div>
     </div>
 
     <div class="row justify-content-center mt-5">
         <div class="card col-md-5 col-sm-12 text-center">
-            <h3 class="pb-3">Your Order Summary:</h3>
+            <font face="Papyrus"><h3 class="pb-3">Your Order Summary:</h3></font>
             {% for item in items %}
-                <p>{{ item.name }} <span class="pl=3">{{ item.price }}</span></p>
+            <font face="Papyrus"><p>{{ item.name }} <span class="pl=3">{{ item.price }}</span></p></font>
             {% endfor %}
 
-            <p class="font-weight-bold pt-4">Total: {{ price }}</p>
+            <font face="Papyrus"><p class="font-weight-bold pt-4">Total: {{ price }}</p></font>
         </div>
     </div>
 </div>

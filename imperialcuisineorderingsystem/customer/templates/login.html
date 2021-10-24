@@ -1,17 +1,17 @@
 {% extends "customer/base.html" %}
 {% block content %}
 <div class="container">
-    <h1>Login</h1>
+    <center><h1>Login</h1></center>
     <div class="form-border">
         <form class="site-form" action="{% url 'access-order' %}" method="post">
-            <div class="logging-form">
+            <div class="logging-form" align="center">
                 {% csrf_token %}
                 {% comment %} {% if request.GET.next %} {% endcomment %}
                 {% comment %} <input type="hidden" name="next" value="{{ request.GET.next }}"> {% endcomment %}
                 {% comment %} {% endif %} {% endcomment %}
 
-                <input type="text" name="name" id="name">
-                <input type="text" name="order_id" id="order_id">
+                <font face="Papyrus"><input type="text" name="name" id="name"> <p>Your Name</p></font>
+                <font face="Papyrus"><input type="text" name="order_id" id="order_id"> <p>Your Order Id</p></font>
                 <input type="submit" value="Login" class="btn btn-success" />
             </div>
         </form>

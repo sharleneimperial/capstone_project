@@ -1,17 +1,31 @@
 {% extends 'customer/base.html' %}
-
+<!-- {% load static %} -->
 {% block content %}
+
+<body>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+<img src="../media/menu_images/imperial_restaurant.jpg"
+class="d-block w-100"
+alt="restinterior"
+height="10%"
+width="30%"
+/>
+
+
+<!-- <link rel="stylesheet href="{% static 'style.css'%}"/> -->
 <div class="container mb-5">
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
-            <h1>Welcome To <br/> The Imperial Cuisine Ordering System!👋</h1>
+            <font face="Papyrus"><h1>Welcome To <br/> The Imperial Cuisine Ordering System!👋</h1></font>
         </div>
     </div>
     <div class="row justify-content-center mt-1">
         <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
-            <h2>Place Your Order!</h2>
-            <a href="{% url 'order' %}" class="btn btn-outline-red">Order Here</a>
+            <font face="Papyrus"><h2>Place Your Order!</h2></font>
+            <font face="Papyrus"><a href="{% url 'order' %}" class="btn btn-outline-red">Order Here</a></font>
         </div>
     </div>
 </div>
+</body>
 {% endblock content %}

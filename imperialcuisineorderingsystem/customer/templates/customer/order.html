@@ -1,4 +1,5 @@
 {% extends 'customer/base.html' %} 
+<!-- {% load static %} -->
 
 {% block content %}
 <div class="container mb-5">
@@ -16,11 +17,11 @@
               <div class="d-flex flex-row">
                 <div class="form-group form-check">
                   <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}"/>
-                  <label class="form-check-label">{{ app.name }} </label>
+                  <font face="Papyrus"><label class="form-check-label">{{ app.name }} </label></font>
                 </div>
-                <p class="font-weight-bold pl-5">{{ app.price }}</p>
+                <font face="Papyrus"><p class="font-weight-bold pl-5" font-family="Papyrus">{{ app.price }}</p></font>
               </div>
-              <p>{{ app.description }}</p>
+              <font face="Papyrus"><p>{{ app.description }}</p></font>
             </div>
           </div>
           <hr />
@@ -47,11 +48,11 @@
                     class="form-check-input"
                     value="{{ entree.pk }}"
                   />
-                  <label class="form-check-label">{{ entree.name }}</label>
+                  <font face="Papyrus"><label class="form-check-label">{{ entree.name }}</label></font>
                 </div>
-                <p class="font-weight-bold pl-5">{{ entree.price }}</p>
+                <font face="Papyrus"><p class="font-weight-bold pl-5" font-family="Papyrus">{{ entree.price }}</p></font>
               </div>
-              <p>{{ entree.description }}</p>
+              <font face="Papyrus"><p>{{ entree.description }}</p></font>
             </div>
           </div>
           <hr />
@@ -73,11 +74,11 @@
                     class="form-check-input"
                     value="{{ dessert.pk }}"
                   />
-                  <label class="form-check-label">{{ dessert.name }}</label>
+                  <font face="Papyrus"><label class="form-check-label">{{ dessert.name }}</label></font>
                 </div>
-                <p class="font-weight-bold pl-5">{{ dessert.price }}</p>
+                <font face="Papyrus"><p class="font-weight-bold pl-5" font-family="Papyrus">{{ dessert.price }}</p></font>
               </div>
-              <p>{{ dessert.description }}</p>
+              <font face="Papyrus"><p>{{ dessert.description }}</p></font>
             </div>
           </div>
           <hr />
@@ -94,11 +95,11 @@
               <div class="d-flex flex-row">
                 <div class="form-group form-check">
                   <input type="checkbox" name="items[]" class="form-check" value="{{drink.pk}}"/>
-                  <label class="form-check-label">{{ drink.name }}</label>
+                  <font face="Papyrus"><label class="form-check-label">{{ drink.name }}</label></font>
                 </div>
-                <p class="font-weight-bold pl-5">{{ drink.price }}</p>
+                <font face="Papyrus"><p class="font-weight-bold pl-5">{{ drink.price }}</p></font>
               </div>
-              <p>{{ drink.description }}</p>
+              <font face="Papyrus"><p>{{ drink.description }}</p></font>
             </div>
           </div>
           <hr />
@@ -106,59 +107,59 @@
         </div>
 
         <div class="form-group pt-3">
-            <label for="name">Full Name</label>
+          <font face="Papyrus"><label for="name">Full Name</label></font>
             <input required class="form-control" type="text" placeholder="Your Name" name="name" />
         </div>
 
         <div class="form-group pt-3">
-            <label for="name">Email Address</label>
+          <font face="Papyrus"><label for="name">Email Address</label></font>
             <input required class="form-control" type="text" placeholder="imperial@imperial.com" name="email" />
         </div>
 
         <div class="form-group pt-3">
-            <label for="name">Street Address</label>
+          <font face="Papyrus"><label for="name">Street Address</label></font>
             <input required class="form-control" type="text" placeholder="4321 Imperial St" name="street" />
         </div>
 
         <div class="row">
             <div class="col-md-4 col-sm-12">
               <div class="form-group pt-3">
-                  <label for="name">City</label>
+                <font face="Papyrus"><label for="name">City</label></font>
                   <input required class="form-control" type="text" placeholder="Seattle" name="city" />
             </div>
         </div>
 
         <div class="col-md-4 col-sm-12">
             <div class="form-group pt-3">
-                <label for="name">State</label>
+              <font face="Papyrus"><label for="name">State</label></font>
                 <input required class="form-control" type="text" placeholder="WA" name="state" />
             </div>
         </div>
 
         <div class="col-md-4 col-sm-12">
             <div class="form-group pt-3">
-                <label for="name">Zip Code</label>
+              <font face="Papyrus"><label for="name">Zip Code</label></font>
                 <input required class="form-control" type="text" placeholder="96753" name="zip" />
             </div>
         </div>
     </div>
 
-    <button type="button" class="btn btn-purple" data-toggle="modal" data-target="#submitModal">
-      Submit My Order!
-    </button>
+    <font face="Papyrus"><button type="button" class="btn btn-purple" data-toggle="modal" data-target="#submitModal">
+      Yes, Submit My Order!
+    </button></font>
 
     <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="submitModalLabel">Submit My Order!</h5>
+            <font face="Papyrus"><h5 class="modal-title" id="submitModalLabel">Are You Sure You Would Like To Submit Your Order?</h5></font>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Go Back</button>
-            <button type="submit" class="btn btn-dark">Place Order!</button>
+            <font face="Papyrus"><button type="button" class="btn btn-light" data-dismiss="modal">Go Back</button></font>
+            <font face="Papyrus"><button type="submit" class="btn btn-dark">Place Order!</button></font>
           </div>
         </div>
       </div>
