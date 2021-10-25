@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.core.mail import send_mail
 from .models import MenuItem, Category, Order
 from django.contrib.auth.forms import AuthenticationForm
+from .forms import Order_Form
 
 
 class Index(View):
@@ -126,6 +127,7 @@ class MenuSearch(View):
 
         return render(request, 'customer/menu.html', context)
 
+
 def access_order(request):
     if request.method == 'POST':
         name = request.POST['name']
@@ -137,47 +139,20 @@ def access_order(request):
 
     return render(request, "login.html")
 
-
 def order_detail(request, order_id):
-    # if it's a post request, go ahead and take the information from the request body and make the appropriate changes in the databasse
+    order = Order.objects.get(id=order_id)
     if request.method == 'POST':
-        # Query database for order with id passed in the url
-        order = Order.objects.get(id=order_id)
-
-        # Update the order with the information from the form being posted
-
-        # Redirect to whatever page you want users to go to after updating their order
-
-        # Remove pass line after once you've added your return statement
-        pass
+        order_form = Order_Form(request.POST, instance=order)
+        if order_form.is_valid():
+            order_form.save()
+            return redirect('order-details', order_id=order_id)
     else:
-        # Right now this is set up to just present the items in the order to the user
-        # You may also want to send the order's address to the detail page, if you want to add the ability to change that address
-        order = Order.objects.get(id=order_id)
         order_items = MenuItem.objects.filter(id__in=order.items.all())
-        print(order_items)
-        return render(request, 'customer/order_detail.html', {'items': order_items, 'order_id': order_id})
+        order_form = Order_Form(instance=order)
+        return render(request, 'customer/order_detail.html', {'items': order_items, 'order_id': order_id, 'order_form': order_form})
 
 
 def delete_order(request, order_id):
-    # Grab the order id (will probably be passed in the url, depending on how you set it up in urls.py and on your template)
     order = Order.objects.get(id=order_id)
-    # if request.method == "POST":
-        # Delete it from the database
     order.delete()
-    # Redirect user back to home(?) page - or wherever you want to send them
     return redirect('about')
-
-def update_order(request, order_id):
-
-    order = Order.objects.get(id=order_id)
-    order.update()
-    return redirect('order_detail')
-
-
-# Create any templates you may still need (pseudo-login form, order detail page, order edit page, delete confirmation, whichever of these you want to include and/or anything else that makes sense to you)
-
-
-# General todos for all of this:
-# Connect these views to your urls.py
-# If you need to add any links to access these new pages and routes to your existing navigation, do that

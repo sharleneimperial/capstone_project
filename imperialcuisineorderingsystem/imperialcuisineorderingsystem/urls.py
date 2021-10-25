@@ -16,8 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
-# from customer.views import Index, About, Menu, MenuSearch, Order_View, access_order, delete_order, order_detail
-from customer.views import Index, About, Menu, MenuSearch, Order_View, access_order, order_detail, delete_order, update_order
+from customer.views import Index, About, Menu, MenuSearch, Order_View, access_order, order_detail, delete_order
 from django.conf.urls.static import static 
 
 urlpatterns = [
@@ -29,6 +28,5 @@ urlpatterns = [
     path('order/', Order_View.as_view(), name='order'),
     path('order/<int:order_id>/', order_detail, name='order-details'),
     path('order/access/', access_order, name='access-order'),
-    path('order/<int:order_id>delete/', delete_order, name='delete-order'),
-    path('order/<int:order_id>update/', update_order, name='update-order'),
+    path('order/<int:order_id>/delete/', delete_order, name='delete-order')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

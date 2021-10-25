@@ -1,41 +1,28 @@
 {% extends "customer/base.html" %}
-<!-- {% load static %} -->
 {% block content %}
-
-<!-- {% for item in items %}
-<p>{{item.name}}</p>
-{% endfor %} -->
-
 
 <div class="cart">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 mt-5">
-                <font face="Papyrus"><h3 class="text-center">Active Orders</h3></font>
-                {% for item in items %}
-                <font face="Papyrus"><p>{{item.name}}</p></font>
-                {% endfor %}
-
+                <font face="Papyrus"><h1 class="text-center"><u>Your Active Orders</u></h1></font>
                 {% if items %}
-                <font face="Papyrus"><h4 class="text-center">Total Bill Amount: {{ item.price }} Orders.</h4></font>
-                <font face="Papyrus"><h6 class="text-center">Please Pay Either Credit Card or Cash on Arrival/Delivery!</h6></font>
+                <b><u><font face="Papyrus"><h6 class="text-center">Please Pay Either Credit Card or Cash on Arrival/Delivery!</h6></font></u></b>
                 <div class="table-responsive">
                     <table class="table table-light">
                         <thead>
                         <tr>
-                            
-                            <font face="Papyrus"><th scope="col">Name</th></font>
-                            <font face="Papyrus"><th scope="col">Description</th></font>
-                            <font face="Papyrus"><th scope="col">Price</th></font>
+                            <th scope="col"><font face="Papyrus">Name</th></font>
+                            <th scope="col"><font face="Papyrus">Description</th></font>
+                            <th scope="col"><font face="Papyrus">Price</th></font>
                         </tr>
                         </thead>
                     <tbody>
                         {% for item in items %}
                     <tr>
-                     
-                        <font face="Papyrus"><td>{{ item.name }}</td></font>
-                        <font face="Papyrus"><td>{{ item.description }}</td></font>
-                        <font face="Papyrus"><td>{{ item.price }}</td></font>
+                      <td><font face="Papyrus">{{ item.name }}</font></td>
+                      <td><font face="Papyrus">{{ item.description }}</font></td>
+                      <td><font face="Papyrus">{{ item.price }}</font></td>
                     </tr>
                         {% endfor %}
                     </tbody>
@@ -46,40 +33,35 @@
             {% endif %}
         </div>
     </div>
-                
-<!-- <form method="post" class="form-group">
-    {% csrf_token %}
-    <div class="row justify-content-center">
-        <h3 class="text-center">Click To Cancel Your Order</h3>
-        {% comment %} <a href="{% url 'delete_order' %}"> {% endcomment %}
-        <button class='btn btn-red button-delete' type="submit">Delete Order</button>
-        </a>
-    </div>
-</form> -->
 
-<!-- <a href="{% url 'update-order' order_id %}" class="btn btn-purple button-update">Update Order</a> -->
-<form method="POST" class="form-group"> 
+    <head>
+        <style type="text/css">
+          body {
+            background-color: black;
+            color: white;
+          }
+          </style>
+      </head>
+
+<form action="{% url 'order-details' order_id %}" method="POST">
     {% csrf_token %}
+    <font face="Papyrus"><h3 class="text-center">Need To Change Your Delivery Address?</h3></font>
+        <n/> 
+        <font face="Papyrus"><p class="text-center">Fill Out The Form Below With The New Address To Change It!</p></font>
+        <font face="Papyrus"><p class="text-center">Note: No need to alarm, once you push the button to submit your updated address, it will automatically be sent to our system. No further action is needed, unless you want to go back and place another order, you may do so! We deeply apologize, that we're not able to make changes, update orders online. Please call us at <u>555-555-1234</u> to make that change. Thank you!</p></font>
     <div class="row justify-content-center">
-        <font face="Papyrus"><h3 class="text-center">Click To Update Your Order➡️</h3></font>
-        <!-- {% comment %} <a href="{% url 'update_order' order_id %}"> {% endcomment %} -->
-            <font face="Papyrus"><a href="{% url 'update-order' order_id %}" class="btn btn-purple button-update">Update Order</a></font>
-        </a>
+    {{ order_form.as_p }}
+    <font face="Papyrus"><input class="btn btn-purple button-update" type="submit" value="Update Order Address"></font>
     </div>
 </form>
 
-
-<!-- <a href="{% url 'delete-order' order_id %}" class="btn btn-red button-delete">Cancel Order</a> -->
-
-
 <form method="POST" class="form-group"> 
     {% csrf_token %}
-    <div class="row justify-content-center">
-        <font face="Papyrus"><h3 class="text-center">Click To Cancel Your Order➡️</h3></font>
-        <!-- {% comment %} <a href="{% url 'update_order' order_id %}"> {% endcomment %} -->
-        <!-- <button class='btn btn-red button-update' type="submit">Delete Order</button> -->
+        <font face="Papyrus"><h3 class="text-center">Click To Cancel Your Order</h3></font>
+        <n/> 
+        <font face="Papyrus"><p class="text-center">Note: To confirm that your order has been Cancelled, you will automatically be redirected to our Homepage.</p></font>
+        <div class="row justify-content-center">
         <font face="Papyrus"><a href="{% url 'delete-order' order_id %}" class="btn btn-red button-delete">Cancel Order</a></font>
-        </a>
     </div>
 </form>
 {% endblock content %}

@@ -1,11 +1,10 @@
 {% extends 'customer/base.html' %}
-<!-- {% load static %} -->
 {% block content %}
 <div class="container mb-5">
     <div class="row justify-content-center mt-1">
         <div class="col-md-5 col-sm-12 p-4 text-center">
-            <font face="Papyrus"><h1>Your Order Has Been Submitted! 😁</h1></font>
-            <font face="Papyrus"><p>You Will Be Receiving A Confirmation Email Soon. 📩</p></font>
+            <font face="Papyrus"><font color="white"><h1>Your Order Has Been Submitted! 😁</h1></font>
+            <font face="Papyrus"><font color="white"><p>You Will Be Receiving A Confirmation Email Soon. 📩</p></font>
             <font face="Papyrus"><a href="{% url 'index' %}">Go To Our Homepage</a></font>
         </div>
     </div>
@@ -21,4 +20,13 @@
         </div>
     </div>
 </div>
+
+<head>
+    <style type="text/css">
+      body {
+        background-color: black;
+       
+      }
+      </style>
+  </head>
 {% endblock content %}

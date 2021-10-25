@@ -1,7 +1,38 @@
 {% extends "customer/base.html" %}
 {% block content %}
+<head>
+    <style type="text/css">
+      h1 {
+        font-size: 20;
+        color: white;
+        font-family: 'Papyrus';
+      }
+    
+      .container {
+        width: 400px;
+        height: 400px;
+        margin: auto;
+        border: 20px solid purple;
+        border-radius: 10px;
+        margin-top: 3%;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+      }
+
+      body {
+        background-color: black;
+        color: white;
+        font-family:"Papyrus";
+        background-image: url("/media/menu_images/login.jpg");
+      }
+
+    </style>
+  </head>
+  <body>
 <div class="container">
     <center><h1>Login</h1></center>
+    <br/>
     <div class="form-border">
         <form class="site-form" action="{% url 'access-order' %}" method="post">
             <div class="logging-form" align="center">
@@ -10,10 +41,17 @@
                 {% comment %} <input type="hidden" name="next" value="{{ request.GET.next }}"> {% endcomment %}
                 {% comment %} {% endif %} {% endcomment %}
 
-                <font face="Papyrus"><input type="text" name="name" id="name"> <p>Your Name</p></font>
-                <font face="Papyrus"><input type="text" name="order_id" id="order_id"> <p>Your Order Id</p></font>
+                <font face="Papyrus"><input type="text" name="name" id="name"><p>Your Name</p></font>
+                <br/>
+                <font face="Papyrus"><input type="text" name="order_id" id="order_id"><p>Your Order Id</p></font>
+                <br/>
                 <input type="submit" value="Login" class="btn btn-success" />
+                <br/>
             </div>
         </form>
     </div>
+    </div>
+    </body>
 {% endblock %}
+
+

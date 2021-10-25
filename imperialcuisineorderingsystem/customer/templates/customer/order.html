@@ -1,6 +1,4 @@
 {% extends 'customer/base.html' %} 
-<!-- {% load static %} -->
-
 {% block content %}
 <div class="container mb-5">
   <div class="row justify-content-center mt-1">
@@ -108,58 +106,67 @@
 
         <div class="form-group pt-3">
           <font face="Papyrus"><label for="name">Full Name</label></font>
-            <input required class="form-control" type="text" placeholder="Your Name" name="name" />
+            <font face="Papyrus"><input required class="form-control" type="text" placeholder="Your Name" name="name" /></font>
         </div>
 
         <div class="form-group pt-3">
           <font face="Papyrus"><label for="name">Email Address</label></font>
-            <input required class="form-control" type="text" placeholder="imperial@imperial.com" name="email" />
+            <font face="Papyrus"><input required class="form-control" type="text" placeholder="imperial@imperial.com" name="email" /></font>
         </div>
 
         <div class="form-group pt-3">
           <font face="Papyrus"><label for="name">Street Address</label></font>
-            <input required class="form-control" type="text" placeholder="4321 Imperial St" name="street" />
+            <font face="Papyrus"><input required class="form-control" type="text" placeholder="4321 Imperial St" name="street" /></font>
         </div>
 
         <div class="row">
             <div class="col-md-4 col-sm-12">
               <div class="form-group pt-3">
                 <font face="Papyrus"><label for="name">City</label></font>
-                  <input required class="form-control" type="text" placeholder="Seattle" name="city" />
+                  <font face="Papyrus"><input required class="form-control" type="text" placeholder="Seattle" name="city" /></font>
             </div>
         </div>
 
         <div class="col-md-4 col-sm-12">
             <div class="form-group pt-3">
               <font face="Papyrus"><label for="name">State</label></font>
-                <input required class="form-control" type="text" placeholder="WA" name="state" />
+                <font face="Papyrus"><input required class="form-control" type="text" placeholder="WA" name="state" /></font>
             </div>
         </div>
 
         <div class="col-md-4 col-sm-12">
             <div class="form-group pt-3">
               <font face="Papyrus"><label for="name">Zip Code</label></font>
-                <input required class="form-control" type="text" placeholder="96753" name="zip" />
+                <font face="Papyrus"><input required class="form-control" type="text" placeholder="96753" name="zip" /></font>
             </div>
         </div>
     </div>
 
+    <head>
+      <style type="text/css">
+        body {
+          background-color: black;
+          color: white;
+        }
+        </style>
+    </head>
+
     <font face="Papyrus"><button type="button" class="btn btn-purple" data-toggle="modal" data-target="#submitModal">
-      Yes, Submit My Order!
+      Submit Order
     </button></font>
 
     <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <font face="Papyrus"><h5 class="modal-title" id="submitModalLabel">Are You Sure You Would Like To Submit Your Order?</h5></font>
+            <font face="Papyrus"><h5 class="modal-title" id="submitModalLabel"><font color="black">Are You Sure You Would Like To Submit Your Order?</h5></font>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-footer">
             <font face="Papyrus"><button type="button" class="btn btn-light" data-dismiss="modal">Go Back</button></font>
-            <font face="Papyrus"><button type="submit" class="btn btn-dark">Place Order!</button></font>
+            <font face="Papyrus"><button type="submit" class="btn btn-dark">Yes, Submit My Order!👍</button></font>
           </div>
         </div>
       </div>

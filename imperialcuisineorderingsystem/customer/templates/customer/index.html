@@ -1,10 +1,20 @@
 {% extends 'customer/base.html' %}
-<!-- {% load static %} -->
 {% block content %}
-
+<head>
+    <style type="text/css">
+      body {
+        background-color: black;
+        background-position: 100px 5px;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: auto;
+        color: white;
+      }
+      </style>
+  </head>
 <body>
-<div class="carousel-inner">
-    <div class="carousel-item active">
+<div class="carousel-inner"> 
+     <div class="carousel-item active">
 <img src="../media/menu_images/imperial_restaurant.jpg"
 class="d-block w-100"
 alt="restinterior"
@@ -12,8 +22,6 @@ height="10%"
 width="30%"
 />
 
-
-<!-- <link rel="stylesheet href="{% static 'style.css'%}"/> -->
 <div class="container mb-5">
     <div class="row justify-content-center mt-5">
         <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
@@ -21,9 +29,9 @@ width="30%"
         </div>
     </div>
     <div class="row justify-content-center mt-1">
-        <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
+        <div class="card col-md-5 col-sm-12 offset-md-1 p-4 brown text-center">
             <font face="Papyrus"><h2>Place Your Order!</h2></font>
-            <font face="Papyrus"><a href="{% url 'order' %}" class="btn btn-outline-red">Order Here</a></font>
+            <font face="Papyrus"><a href="{% url 'order' %}" class="btn btn-outline-red white">Order Here</a></font>
         </div>
     </div>
 </div>
