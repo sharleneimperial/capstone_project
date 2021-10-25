@@ -52,6 +52,7 @@
 - Python
 - Django Framework
 - Postgres
+
 Other languages include:
 - HTML
 - CSS
